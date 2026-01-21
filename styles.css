@@ -260,18 +260,18 @@ html, body {
     scroll-snap-type: x mandatory;
     position: relative;
     overflow-y: hidden;
-    padding-top: 40px;
+    padding-top: 44px;
 }
 
 .page {
     flex: 0 0 100%;
     width: 100%;
     height: 100%;
-    padding: 26px 20px 130px;
+    padding: 30px 20px 100px;
     scroll-snap-align: start;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 140px 12px 92px 12px 120px auto;
+    grid-template-rows: 140px 16px 100px 16px 140px auto;
     gap: 0;
     position: relative;
     z-index: 1;
@@ -301,10 +301,11 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 156px;
+    height: 156px;
+    aspect-ratio: 1;
     justify-self: start;
+    align-self: center;
 }
 
 .widget-analog-clock::before {
@@ -496,7 +497,7 @@ html, body {
 
 .page-indicator {
     position: absolute;
-    bottom: 78px;
+    bottom: 68px;
     left: 0;
     right: 0;
     display: flex;
@@ -524,9 +525,11 @@ html, body {
     left: 0;
     right: 0;
     bottom: 12px;
-    padding: 4px 24px;
+    padding: 8px 24px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    gap: 20px;
     z-index: 30;
     height: 52px;
 }
@@ -545,6 +548,9 @@ html, body {
 }
 
 .dock-bar .app-icon {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
     gap: 0;
 }
 
@@ -553,15 +559,16 @@ html, body {
 }
 
 .dock-bar .app-icon .icon-bg {
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.dock-bar .app-icon {
-    position: relative;
-    z-index: 1;
-    flex: 1;
+.dock-bar .app-icon .icon-bg span {
+    font-size: 20px;
 }
 
 /* P1 应用壳体 */
