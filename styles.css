@@ -267,18 +267,18 @@ html, body {
     flex: 0 0 100%;
     width: 100%;
     height: 100%;
-    padding: 30px 20px 100px;
+    padding: 16px 20px 90px;
     scroll-snap-align: start;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 140px 16px 100px 16px 140px auto;
+    grid-template-rows: 150px 12px 90px 12px 140px auto;
     gap: 0;
     position: relative;
     z-index: 1;
 }
 .page-empty {
     display: block;
-    padding: 30px 20px 120px;
+    padding: 16px 20px 90px;
 }
 
 .glass {
@@ -292,7 +292,7 @@ html, body {
         0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* 模拟指针时钟 */
+/* 模拟指针时钟 - 正圆形 */
 .widget-analog-clock {
     grid-column: 1 / 3;
     grid-row: 1 / 3;
@@ -301,18 +301,20 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 156px;
-    height: 156px;
+    /* 强制正圆 */
+    width: 140px;
+    height: 140px;
     aspect-ratio: 1;
     justify-self: start;
     align-self: center;
+    margin-left: 8px;
 }
 
 .widget-analog-clock::before {
     content: '';
     position: absolute;
-    inset: 16px;
-    border-radius: 999px;
+    inset: 10px;
+    border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.04);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
 }
@@ -328,16 +330,19 @@ html, body {
 }
 
 .widget-analog-clock .hour-hand {
-    height: 32%;
+    height: 28px;
+    margin-top: -28px;
 }
 
 .widget-analog-clock .minute-hand {
-    height: 40%;
+    height: 38px;
+    margin-top: -38px;
     opacity: 0.9;
 }
 
 .widget-analog-clock .second-hand {
-    height: 46%;
+    height: 44px;
+    margin-top: -44px;
     background: var(--color-accent);
 }
 
@@ -355,29 +360,34 @@ html, body {
 
 .widget-analog-clock .num {
     position: absolute;
-    font-size: 10px;
-    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.5);
 }
 
-.widget-analog-clock .num12 { top: 18px; left: 50%; transform: translateX(-50%); }
-.widget-analog-clock .num3  { right: 18px; top: 50%; transform: translateY(-50%); }
-.widget-analog-clock .num6  { bottom: 18px; left: 50%; transform: translateX(-50%); }
-.widget-analog-clock .num9  { left: 18px; top: 50%; transform: translateY(-50%); }
+.widget-analog-clock .num12 { top: 14px; left: 50%; transform: translateX(-50%); }
+.widget-analog-clock .num3  { right: 14px; top: 50%; transform: translateY(-50%); }
+.widget-analog-clock .num6  { bottom: 14px; left: 50%; transform: translateX(-50%); }
+.widget-analog-clock .num9  { left: 14px; top: 50%; transform: translateY(-50%); }
 
-/* 日历 / 电量小组件占位 */
+/* 中央大卡片 */
 .widget-calendar {
     grid-column: 1 / 5;
     grid-row: 3 / 4;
-    border-radius: 28px;
+    border-radius: 24px;
     box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.06),
-        0 1px 2px rgba(0, 0, 0, 0.04);
+        0 6px 18px rgba(0, 0, 0, 0.05),
+        0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
+/* 右下大卡片 */
 .widget-battery {
     grid-column: 3 / 5;
     grid-row: 5 / 7;
-    border-radius: 28px;
+    border-radius: 24px;
+    box-shadow:
+        0 6px 18px rgba(0, 0, 0, 0.05),
+        0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .widget-music {
@@ -439,6 +449,13 @@ html, body {
 }
 
 .app-grid-small,
+.app-grid-top,
+.app-grid-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-s);
+}
+
 .app-grid-page2 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -449,12 +466,14 @@ html, body {
     grid-column: 3 / 5;
     grid-row: 1 / 3;
     align-content: center;
+    justify-content: center;
 }
 
 .app-grid-bottom {
     grid-column: 1 / 3;
     grid-row: 5 / 7;
     align-content: center;
+    justify-content: center;
 }
 
 .app-grid-page2 {
@@ -473,21 +492,21 @@ html, body {
 }
 
 .app-icon .icon-bg {
-    width: 56px;
-    height: 56px;
-    border-radius: 18px;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
     background: rgba(255, 255, 255, 0.98);
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.06),
-        0 1px 2px rgba(0, 0, 0, 0.05);
+        0 6px 16px rgba(0, 0, 0, 0.05),
+        0 1px 2px rgba(0, 0, 0, 0.04);
     transition: transform 160ms ease-out, box-shadow 160ms ease-out, background 160ms ease-out;
 }
 
 .app-icon .icon-bg span {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .app-icon:hover .icon-bg {
@@ -497,7 +516,7 @@ html, body {
 
 .page-indicator {
     position: absolute;
-    bottom: 68px;
+    bottom: 76px;
     left: 0;
     right: 0;
     display: flex;
@@ -519,19 +538,19 @@ html, body {
     background: rgba(0, 0, 0, 0.35);
 }
 
-/* Dock L1 */
+/* Dock L1 - 紧凑圆形图标 */
 .dock-bar {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 12px;
-    padding: 8px 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 14px;
+    padding: 8px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 18px;
     z-index: 30;
-    height: 52px;
+    height: 56px;
 }
 
 .dock-bar::before {
@@ -539,12 +558,12 @@ html, body {
     position: absolute;
     inset: 0;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.92);
     backdrop-filter: var(--backdrop-blur-lg);
     -webkit-backdrop-filter: var(--backdrop-blur-lg);
     box-shadow:
-        0 10px 26px rgba(0, 0, 0, 0.16),
-        0 0 0 1px rgba(255, 255, 255, 0.7);
+        0 8px 20px rgba(0, 0, 0, 0.10),
+        0 0 0 1px rgba(255, 255, 255, 0.6);
 }
 
 .dock-bar .app-icon {
@@ -554,21 +573,22 @@ html, body {
     gap: 0;
 }
 
+/* Dock 图标：圆形、无文字 */
 .dock-bar .app-icon > span {
     display: none;
 }
 
 .dock-bar .app-icon .icon-bg {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     box-shadow:
-        0 4px 12px rgba(0, 0, 0, 0.08),
-        0 1px 2px rgba(0, 0, 0, 0.05);
+        0 3px 10px rgba(0, 0, 0, 0.06),
+        0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .dock-bar .app-icon .icon-bg span {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 /* P1 应用壳体 */
