@@ -267,11 +267,11 @@ html, body {
     flex: 0 0 100%;
     width: 100%;
     height: 100%;
-    padding: 30px 20px 120px;
+    padding: 28px 20px 110px;
     scroll-snap-align: start;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 140px 20px 120px 24px 150px auto;
+    grid-template-rows: 140px 16px 100px 16px 130px auto;
     gap: 0;
     position: relative;
     z-index: 1;
@@ -301,6 +301,11 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 170px;
+    border-radius: 50%;
+    justify-self: start;
 }
 
 .widget-analog-clock::before {
@@ -318,6 +323,8 @@ html, body {
     background: var(--color-text-primary);
     transform-origin: 50% 90%;
     border-radius: 999px;
+    left: 50%;
+    top: 50%;
 }
 
 .widget-analog-clock .hour-hand {
@@ -341,6 +348,9 @@ html, body {
     border-radius: 50%;
     background: var(--color-text-primary);
     box-shadow: 0 0 0 3px rgba(255,255,255,0.7);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .widget-analog-clock .num {
@@ -514,11 +524,12 @@ html, body {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 18px;
-    padding: 0 30px;
+    bottom: 14px;
+    padding: 6px 26px;
     display: flex;
     justify-content: center;
     z-index: 30;
+    height: 58px;
 }
 
 .dock-bar::before {
@@ -532,6 +543,20 @@ html, body {
     box-shadow:
         0 10px 26px rgba(0, 0, 0, 0.16),
         0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.dock-bar .app-icon {
+    gap: 0;
+}
+
+.dock-bar .app-icon > span {
+    display: none;
+}
+
+.dock-bar .app-icon .icon-bg {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
 }
 
 .dock-bar .app-icon {

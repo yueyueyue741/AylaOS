@@ -166,13 +166,13 @@ function updateTime() {
     const secondHand = document.querySelector('.second-hand');
 
     if (hourHand) {
-        hourHand.style.transform = `translateX(-50%) rotate(${hourAngle}deg)`;
+        hourHand.style.transform = `translate(-50%, -90%) rotate(${hourAngle}deg)`;
     }
     if (minuteHand) {
-        minuteHand.style.transform = `translateX(-50%) rotate(${minuteAngle}deg)`;
+        minuteHand.style.transform = `translate(-50%, -90%) rotate(${minuteAngle}deg)`;
     }
     if (secondHand) {
-        secondHand.style.transform = `translateX(-50%) rotate(${secondAngle}deg)`;
+        secondHand.style.transform = `translate(-50%, -90%) rotate(${secondAngle}deg)`;
     }
 }
 
