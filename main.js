@@ -74,13 +74,17 @@ function createDockItemHTML(app) {
 function renderHomeScreen() {
     const page1Top = document.getElementById('page1-apps-top');
     const page1Bottom = document.getElementById('page1-apps-bottom');
-    const page2Apps = document.getElementById('page2-apps');
     const dock = document.getElementById('dock-bar');
 
-    page1Top.innerHTML = APPS_CONFIG.page1.slice(0, 4).map(createAppIconHTML).join('');
-    page1Bottom.innerHTML = APPS_CONFIG.page1.slice(4, 8).map(createAppIconHTML).join('');
-    page2Apps.innerHTML = APPS_CONFIG.page2.map(createAppIconHTML).join('');
-    dock.innerHTML = APPS_CONFIG.dock.map(createDockItemHTML).join('');
+    if (page1Top) {
+        page1Top.innerHTML = APPS_CONFIG.page1.slice(0, 4).map(createAppIconHTML).join('');
+    }
+    if (page1Bottom) {
+        page1Bottom.innerHTML = APPS_CONFIG.page1.slice(4, 8).map(createAppIconHTML).join('');
+    }
+    if (dock) {
+        dock.innerHTML = APPS_CONFIG.dock.map(createDockItemHTML).join('');
+    }
 }
 
 function initPagination() {
