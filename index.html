@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ayla OS · Mini</title>
+
+    <!-- Iconify 图标库 -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+
+    <!-- 核心样式 -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- 小手机外壳 -->
+    <div class="mobile-screen" id="mobile-os-container">
+        <!-- 锁屏界面 -->
+        <section id="lock-screen-view" class="view-container">
+            <header class="status-bar">
+                <div class="status-left">
+                    <div class="status-time" id="lock-status-time"></div>
+                    <div class="status-date" id="lock-status-date"></div>
+                </div>
+                <div class="status-center"></div>
+                <div class="status-right">
+                    <div class="creator-signature">制作者：Ayla</div>
+                </div>
+            </header>
+            <div class="lockscreen-wrapper">
+                <div class="time-date-section">
+                    <div class="time" id="lock-screen-time"></div>
+                    <div class="date" id="lock-screen-date"></div>
+                </div>
+                <div class="notifications-area">
+                    <div class="empty-state">暂无新通知</div>
+                </div>
+                <div class="unlock-prompt">点击屏幕解锁</div>
+            </div>
+        </section>
+
+        <!-- 主界面 -->
+        <section id="home-screen-view" class="view-container hidden">
+            <header class="status-bar">
+                <div class="status-left">
+                    <div class="status-time" id="status-time"></div>
+                    <div class="status-date" id="status-date"></div>
+                </div>
+                <div class="status-center"></div>
+                <div class="status-right">
+                    <div class="creator-signature">制作者：Ayla</div>
+                </div>
+            </header>
+
+            <main class="pages-container scrollbar-hidden" id="pages-container">
+                <!-- 第 1 页 -->
+                <div class="page" id="page-1">
+                    <div class="widget-analog-clock glass">
+                        <div class="hand hour-hand"></div>
+                        <div class="hand minute-hand"></div>
+                        <div class="hand second-hand"></div>
+                        <div class="center-dot"></div>
+                        <span class="num num12">12</span>
+                        <span class="num num3">3</span>
+                        <span class="num num6">6</span>
+                        <span class="num num9">9</span>
+                    </div>
+
+                    <div class="app-grid-small" id="page1-apps-top"></div>
+
+                    <div style="grid-column: 1 / 5; grid-row: 2 / 3;"></div>
+
+                    <div class="widget-calendar glass"></div>
+
+                    <div style="grid-column: 1 / 5; grid-row: 4 / 5;"></div>
+
+                    <div class="app-grid-small" id="page1-apps-bottom"></div>
+                    <div class="widget-battery glass"></div>
+                </div>
+
+                <!-- 第 2 页：暂时留空，只保留背景节奏 -->
+                <div class="page page-empty" id="page-2"></div>
+            </main>
+
+            <div class="page-indicator" id="page-indicator"></div>
+
+            <!-- Dock 栏：核心 4 应用 -->
+            <footer class="dock-bar" id="dock-bar"></footer>
+        </section>
+
+        <!-- 核心应用视图：仅保留基础壳体 -->
+        <section id="chatroom-list-view" class="view-container hidden">
+            <header class="status-bar">
+                <div class="status-left">
+                    <div class="status-time" id="chatroom-status-time"></div>
+                    <div class="status-date" id="chatroom-status-date"></div>
+                </div>
+                <div class="status-center"></div>
+                <div class="status-right">
+                    <div class="creator-signature">制作者：Ayla</div>
+                </div>
+            </header>
+            <button class="back-button" data-action="navigate-home">
+                <span class="iconify" data-icon="feather:arrow-left"></span>
+            </button>
+            <div class="app-content"></div>
+        </section>
+
+        <section id="codex-list-view" class="view-container hidden">
+            <header class="status-bar">
+                <div class="status-left">
+                    <div class="status-time" id="codex-status-time"></div>
+                    <div class="status-date" id="codex-status-date"></div>
+                </div>
+                <div class="status-center"></div>
+                <div class="status-right">
+                    <div class="creator-signature">制作者：Ayla</div>
+                </div>
+            </header>
+            <button class="back-button" data-action="navigate-home">
+                <span class="iconify" data-icon="feather:arrow-left"></span>
+            </button>
+            <div class="app-content"></div>
+        </section>
+
+        <section id="the-ego-view" class="view-container hidden">
+            <header class="status-bar">
+                <div class="status-left">
+                    <div class="status-time" id="ego-status-time"></div>
+                    <div class="status-date" id="ego-status-date"></div>
+                </div>
+                <div class="status-center"></div>
+                <div class="status-right">
+                    <div class="creator-signature">制作者：Ayla</div>
+                </div>
+            </header>
+            <button class="back-button" data-action="navigate-home">
+                <span class="iconify" data-icon="feather:arrow-left"></span>
+            </button>
+            <div class="app-content"></div>
+        </section>
+
+        <section id="the-salon-view" class="view-container hidden">
+            <header class="status-bar">
+                <div class="status-left">
+                    <div class="status-time" id="salon-status-time"></div>
+                    <div class="status-date" id="salon-status-date"></div>
+                </div>
+                <div class="status-center"></div>
+                <div class="status-right">
+                    <div class="creator-signature">制作者：Ayla</div>
+                </div>
+            </header>
+            <button class="back-button" data-action="navigate-home">
+                <span class="iconify" data-icon="feather:arrow-left"></span>
+            </button>
+            <div class="app-content"></div>
+        </section>
+
+        <!-- 通用模态层：预留 L2 / L3 能力 -->
+        <div id="modal-container">
+            <div class="modal-overlay hidden" id="generic-modal">
+                <div class="modal-dialog">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="generic-modal-title">标题</h3>
+                        <button class="modal-close-btn" data-action="close-modal">
+                            <span class="iconify" data-icon="feather:x"></span>
+                        </button>
+                    </div>
+                    <div class="modal-content" id="generic-modal-content"></div>
+                    <div class="modal-footer" id="generic-modal-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 核心脚本：仅保留外壳 & 基础交互 -->
+    <script src="./main.js"></script>
+</body>
+</html>
+
